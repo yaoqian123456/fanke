@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="never">
+    <title>polo分类 - VANCL 凡客诚品</title>
+    <link rel="stylesheet" href="../font/font_1839443_h7lb25z13k/iconfont.css">
+    <link rel="stylesheet" href="../swiper-5.3.8/package/css/swiper.min.css">
+    <style>
+        /*通用样式*/
+        *{margin: 0;padding: 0;}
+        a{text-decoration: none;font-size: 14px;}
+        ul li{list-style: none;}
+        ol li{list-style: none;}
+        .container-fluid{width: 100%;}
+        .container{width: 1200px;margin: 0 auto;}
+        .clear:after { clear:both;content:'';display:block;width:0;height:0;visibility:hidden; }
+    /*side样式*/
+        #side{background-color:#f7f7f7;font-size: 14px;border-bottom: 1px solid #cccccc;}
+        #side a{color:  #808080;}
+        #side .rit{float: right;display: flex;line-height: 30px;color: #808080;}
+        #side .rit .wel{margin-right: 10px;}
+        #side .rit .reg{margin-right: 10px;}
+        #side .rit .quit{margin-right: 10px;}
+        #side .rit .login .s1{margin-left: 10px;}
+        #side .rit .login{margin-right: 10px;}
+        #side .rit .user{margin-right: 10px;}
+        
+        #side .rit .ding{margin-right: 10px;}
+        #side .rit  .gonggao{margin-right: 10px;}
+        #side .iconweixin{font-size: 20px;color: #41b135;margin-right: 5px;}
+        #side .iconweibo{font-size: 20px;color: #e41824;}
+        /* header样式*/
+        #header{}
+        #header .rit{float: right;font-size: 14px;color: #808080;margin-top: 40px;}
+        #header input{width: 260px;height: 25px;color: black;}
+        #header .btu1{height: 28px;width: 50px;background-color: #b71c22;color: white;margin-right: 20px;}
+        #header .btu2{height: 28px;width: 90px;background-color:#b71c22;color: white;}
+        #header .btu2 .icongouwuche{}
+        #header .rit .hot{margin-top: 10px;margin-left: 20px;}
+          /* nav样式*/
+        #nav{}
+        #nav ul{float: right;margin-top: 30px;margin-bottom: 40px;}
+        #nav ul a{color: #808080;font-size: 16px;}
+        #nav ul li{display: inline-block;position: relative;line-height: 25px;}
+        #nav ul li span{padding: 0 20px;color:#808080 ;}
+        #nav ul li ol{position: absolute;top: 25px;left: -20px;background-color: white;line-height: 40px;display: none;z-index: 2;width: 90px;text-align: center;
+                border-top: 3px solid red;}
+
+
+                
+        .swiper-pagination-bullet{background-color: white;opacity: 0.6;
+           width: 13px;
+             height: 13px;
+             }
+        .swiper-pagination-bullet-active {
+       opacity: 1;
+        background-color:red;
+           } 
+        .swiper-button-prev{color: #8c8a90;} 
+        .swiper-button-next{color:#8c8a90; ;}
+
+
+
+      #ad{margin-top: 20px;}
+      #ad .img1{margin-bottom: 30px;}
+      #ad h3{color: red;font-size: 25px;float: left;font-weight: normal;}
+      #ad .time{float: right;}
+      #ad .list{display: flex;margin-top: 50px;}
+      #ad .list .comm{width: 250px;}
+      #ad .list .comm a{color: black;}
+      #ad .list .comm .cost{margin-top: 20px;margin-bottom: -5px;}
+      #ad .list .comm .cost a{color: #808080;text-decoration: line-through;}
+      #ad .list .comm .price{}
+      #ad .list .comm .price a{color: red;}
+      #ad .list .comm .price .pr{margin-left: 120px;}
+      #ad .list .comm .price .pr i{color:red;font-size: 22px;font-weight: 800;font-style: normal;}
+      #ad .time{font-size: 18px;}
+      #ad .time .t1{margin-left: 10px;  display: inline-block;color: white;background-color: #bd050f;width: 40px;height: 40px;text-align: center;line-height: 40px;border-radius: 10px;}
+      #ad .time .t2{display: inline-block;color: white;background-color: #bd050f;width: 40px;height: 40px;text-align: center;line-height: 40px;border-radius: 10px;}
+      #ad .time .t3{display: inline-block;color: white;background-color: #bd050f;width: 40px;height: 40px;text-align: center;line-height: 40px;border-radius: 10px;}
+      #ad .time .dian{margin: 0 5px;color:#bd050f ;font-size: 20px;font-weight: 700;}
+      #hot{}
+      #hot .you{margin: 20px 0;}
+      #hot .you li{float: left;width: 33%;}
+      #hot ol{}
+      #hot ol li{float: left;width: 25%;}
+     #opti{}
+     #opti h4{font-size: 18px;font-weight: 300;text-align: center;color:#808080 ;margin: 18px 0;}
+     #opti .disc{display: flex;flex-wrap: wrap;flex-direction: column;height: 1100px;}
+     #opti .disc div{margin: 10px;}
+     #opti .disc div ul{border: 1px solid  #eaebef;; height: 56px;border-top: none;line-height: 56px;font-size: 14px;margin-top: -3px;}
+     #opti .disc div ul li:nth-child(1) {float: left;margin-left: 10px;}
+     #opti .disc div ul li:nth-child(2){float: right;}
+     #opti .disc div ul li span{font-size: 16px;color: #808080;}
+     #lower{}
+     #lower .title{font-size: 18px;font-weight: 300;text-align: center;color:#808080 ;margin: 20px 0;padding-bottom: 10px;}
+     #lower .load{display: flex;}
+     #lower .load div{margin: 0 20px;}
+     #lower .load div ul{border: 1px solid  #eaebef; height: 56px;border-top: none;line-height: 56px;font-size: 14px;margin-top: -3px;}
+     #lower .load div ul li:nth-child(1){float: left;margin-left: 10px;}
+     #lower .load div ul li:nth-child(2){float: right;margin-right: 10px;}
+     #lower .load div ul li span{font-size: 16px;color: #808080;}
+     #more{margin-top: 50px;}
+     #more .title{font-size: 18px;font-weight: 300;text-align: center;color:#808080 ;margin: 20px 0;padding-bottom: 10px;}
+     #more .mores{float: left;}
+     #more .mores img{margin: 0 5px;}
+     #serve{margin-top: 50px;border: 1px solid  #eaebef;}
+     #serve .lis{display: flex;margin-top: 40px;}
+     #serve .lis .lls{width: 33%;text-align: center;border-right: 1px solid  #eaebef;}
+     #serve .lis .lls:nth-child(3){border: none;}
+     #serve .lis .lls p{margin-top: 20px;color: #808080 ;}
+     #serve .lis .lls .p1{width: 150px;height: 30px;background-color:#bd050f;text-align: center;line-height: 30px;color: wheat;margin-left: 120px;margin-top: 30px;}
+     #serve ul{text-align: center;margin: 30px 40px;background-color:#ecedf1;padding: 15px 0;}
+     #serve ul li{display: inline-block;font-size: 12px;}
+     #serve ul li span{margin: 0 50px;font-size: 20px;color:#808080;}
+
+     #foot{border-top: 1px solid #bd050f;margin-top: 30px;margin-bottom: 20px;}
+     #footer{color:#808080 ;font-size: 12px;margin-top: 10px;text-align: center;padding-top: 10px;}
+     #footer .text{line-height: 25px;margin-bottom: 20px;}
+     #footer .brand{margin-top: 10px;}
+    </style>
+</head>
+<body>
+  <div id="side" class="container-fluid">
+    <div class="container clear">
+        <div class="rit ">
+            <div class="wel">您好,欢迎光临凡客诚品！</div>
+            <div class="login"><a href="./login.html">登录</a> <span class="s1">|</span></div>
+            <div class="user"></div>
+            <div class="reg"><a href="./reg.html">注册</a> </div>
+            <div class="quit"><a href="./index.html">退出登录</a> </div>
+            <div class="ding">我的订单</div>
+            <div class="gonggao"><a href="">网站公告</a></div><span class="iconfont iconweixin"></span><span class="iconfont iconweibo"></span>
+        </div>
+    </div>
+  </div>
+  <div id="header" class="container clear">
+      <div class="rit">
+          <input type="text" value="搜“日式免烫衬衫”，体验与众不同"><button class="btu1">搜索</button><button class="btu2"><span class="iconfont icongouwuche"></span>购物车<span class="numm"></span></button>
+          <div class="hot">热门搜索： 免烫衬衫 T恤 polo 卫衣 牛仔裤 帆布鞋 水柔棉</div>
+      </div>
+  </div>
+<div id="nav" class="container clear">
+   <a href="./index.html"><img src="../images/001.png"></a>
+    <ul>
+        <li><a href="./index.html">首页</a><span>|</span>
+    
+        </li>
+
+        <li><a href="./list.html?cat_one_id=内衣配饰">内衣配饰</a><span>|</span>
+            <ol>
+                <li><a href="./list.html?cat_one_id=厨卫电器">厨卫</a></li>
+                
+              
+                <li><a href="./list.html?cat_one_id=居家生活">居家生活</a></li>
+                <li><a href="./list.html?cat_one_id=手机相机">手机相机</a></li>
+                <li><a href="#">变形金刚</a></li>
+            </ol>
+        </li>
+        <li><a href="./list.html?cat_one_id=男装">男装</a><span>|</span>
+            <ol>
+                <li><a href="./list.html?cat_one_id=智能设备">智能设备</a></li>
+                <li><a href="./list.html?cat_one_id=汽车生活">汽车生活</a></li>
+                <li><a href="./list.html?cat_one_id=热门推荐">热门推荐</a></li>
+            
+            </ol>
+        </li>
+        <li><a href="./list.html?cat_one_id=女装">女装</a><span>|</span>
+        <ol>
+                <li><a href="./list.html?cat_one_id=电脑办公">电脑办公</a></li>
+                <li><a href="./list.html?cat_one_id=皮具箱包">皮具箱包</a></li>
+                <li><a href="./list.html?cat_one_id=邮币乐器">邮币乐器</a></li>
+                <li><a href="#">变形金刚</a></li>
+                <li><a href="#">变形金刚</a></li>
+                <li><a href="#">变形金刚</a></li>
+            </ol>
+        </li>
+        <li><a href="./list.html?cat_one_id=女鞋">女鞋</a><span>|</span>
+            <ol>
+                <li><a href="./list.html?cat_one_id=钟表眼镜">钟表眼镜</a></li>
+                <li><a href="#">致敬系列</a></li>
+                <li><a href="#">变形金刚</a></li>
+                <li><a href="#">变形金刚</a></li>
+                <li><a href="#">变形金刚</a></li>
+                <li><a href="#">变形金刚</a></li>
+            </ol>
+        </li>
+        <li><a href="./list.html?cat_one_id=其他">奶粉尿裤</a><span>|</span>
+            <ol>
+                <li><a href="#">变形金刚</a></li>
+                <li><a href="#">致敬系列</a></li>
+                <li><a href="#">变形金刚</a></li>
+                <li><a href="#">变形金刚</a></li>
+                <li><a href="#">变形金刚</a></li>
+                <li><a href="#">变形金刚</a></li>
+            </ol>
+        </li>
+        <li><a href="./list.html?cat_one_id=海外购">海外购</a><span>|</span>
+            <ol>
+                <li><a href="#">变形金刚</a></li>
+                <li><a href="#">致敬系列</a></li>
+                <li><a href="#">变形金刚</a></li>
+                <li><a href="#">变形金刚</a></li>
+                <li><a href="#">变形金刚</a></li>
+                <li><a href="#">变形金刚</a></li>
+            </ol>
+        </li>
+       
+        <li><a href="./list.html?cat_one_id=男鞋">男鞋</a><span>|</span>
+            <ol>
+                <li><a href="#">变形金刚</a></li>
+                <li><a href="#">致敬系列</a></li>
+                <li><a href="#">变形金刚</a></li>
+                <li><a href="#">变形金刚</a></li>
+                <li><a href="#">变形金刚</a></li>
+                <li><a href="#">变形金刚</a></li>
+            </ol>
+        </li>
+        <li><a href="./list.html?cat_one_id=童装玩具">童装玩具</a><span>|</span>
+            <ol>
+                <li><a href="#">变形金刚</a></li>
+                <li><a href="#">致敬系列</a></li>
+                <li><a href="#">变形金刚</a></li>
+                <li><a href="#">变形金刚</a></li>
+                <li><a href="#">变形金刚</a></li>
+                <li><a href="#">变形金刚</a></li>
+            </ol>
+        </li>
+        <li><a href="./list.html?cat_one_id=个护健康">个护健康</a><span>|</span>
+            <ol>
+                <li><a href="#">变形金刚</a></li>
+                <li><a href="#">致敬系列</a></li>
+                <li><a href="#">变形金刚</a></li>
+                <li><a href="#">变形金刚</a></li>
+                <li><a href="#">变形金刚</a></li>
+                <li><a href="#">变形金刚</a></li>
+            </ol>
+        </li>
+    </ul>
+</div>
+<div id="banner" class="container">
+    <div class="swiper-container" id = "swiper_container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide img1" ><img src="https://i1.vanclimg.com/cms/20200519/focus01.jpg" alt=""></div>
+            <div class="swiper-slide img1" ><img src="https://i1.vanclimg.com/cms/20200519/focus02.jpg" alt=""></div>
+            <div class="swiper-slide img1" ><img src="https://i1.vanclimg.com/cms/20200519/focus03.jpg" alt=""></div>
+            <div class="swiper-slide img1" ><img src="https://i1.vanclimg.com/cms/20200519/focus04.jpg" alt=""></div>
+            <div class="swiper-slide img1" ><img src="https://i1.vanclimg.com/cms/20200519/focus05.jpg" alt=""></div>
+            <div class="swiper-slide img1" ><img src="https://i1.vanclimg.com/cms/20200519/focus06.jpg" alt=""></div>
+            <div class="swiper-slide img1" ><img src="https://i1.vanclimg.com/cms/20200519/focus07.jpg" alt=""></div>
+        </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
+
+        <!-- 如果需要导航按钮 -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+    </div>
+</div>
+<div id="ad" class="container clear">
+    <img class="img1" src="https://i1.vanclimg.com/cms/20200422/100-100.jpg">
+  <h3>限时秒杀 欲购从速</h3>
+  <div class="time">秒杀进行中，距结束还有 <span class="t1"></span><span class="dian">:</span><span class="t2"></span><span class="dian">:</span><span class="t3"></span></div>
+  <div class="list">
+  <div class="comm"><img src="http://p3.vanclimg.com/232/232/product/6/3/8/6385461/mid/6385461-1j201904241041153975.jpg">
+    <div class="text"><a href="#">T恤 苏杭 LONG TIME NO SEE 白色</a></div>
+    <div class="cost"><a href="#">￥98</a></div>
+    <div class="price"><a href="#">￥18</a><span class="pr">充值后<i>9</i>元</span></div>
+</div>
+<div class="comm"><img src="http://p3.vanclimg.com/232/232/product/6/3/8/6386824/mid/6386824-1j201909271621584422.jpg">
+    <div class="text"><a href="#">T恤 苏杭 LONG TIME NO SEE 白色</a></div>
+    <div class="cost"><a href="#">￥278</a></div>
+    <div class="price"><a href="#">￥18</a><span class="pr">充值后<i>9</i>元</span></div>
+</div>
+<div class="comm"><img src="http://p3.vanclimg.com/232/232/product/6/3/8/6386666/mid/6386666-1j201909291425164610.jpg">
+    <div class="text"><a href="#">T恤 苏杭 LONG TIME NO SEE 白色</a></div>
+    <div class="cost"><a href="#">￥398</a></div>
+    <div class="price"><a href="#">￥18</a><span class="pr">充值后<i>9</i>元</span></div>
+</div>
+<div class="comm"><img src="http://p3.vanclimg.com/232/232/product/6/3/8/6386827/mid/6386827-1j201909271622033174.jpg">
+    <div class="text"><a href="#">T恤 苏杭 LONG TIME NO SEE 白色</a></div>
+    <div class="cost"><a href="#">￥298</a></div>
+    <div class="price"><a href="#">￥18</a><span class="pr">充值后<i>9</i>元</span></div>
+    
+</div>
+<div class="comm"><img src="http://p3.vanclimg.com/232/232/product/6/3/8/6385648/mid/6385648-1j202002171506159735.jpg">
+    <div class="text"><a href="#">T恤 苏杭 LONG TIME NO SEE 白色</a></div>
+    <div class="cost"><a href="#">￥99</a></div>
+    <div class="price"><a href="#">￥18</a><span class="pr">充值后<i>9</i>元</span></div>
+</div>
+</div>
+</div>
+<div id="hot" class="container clear">
+    <ul class="you clear">
+        <li><img src="https://i2.vanclimg.com/cms/20200528/czt0528_02.jpg"></li>
+        <li><img src="https://i2.vanclimg.com/cms/20200528/czt0528_03.jpg"></li>
+        <li><img src="https://i2.vanclimg.com/cms/20200528/czt0528_04.jpg"></li>
+    </ul>
+    <ol class="prii clear">
+        <li><a href="#"><img src="https://i2.vanclimg.com/cms/20200526/pc526_03.jpg">
+           
+        </a></li>
+        <li><a href="#"><img src="https://i2.vanclimg.com/cms/20200526/pc526_03.jpg">
+           
+        </a></li>
+        <li><a href="#"><img src="https://i2.vanclimg.com/cms/20200526/pc526_03.jpg">
+        </a>
+        </li>
+        <li><a href="#"><img src="https://i2.vanclimg.com/cms/20200526/pc526_03.jpg">
+            
+        </a></li>
+        <li><a href="#"><img src="https://i2.vanclimg.com/cms/20200416/29vtpc_10.jpg">
+        
+          </a></li>
+        <li><a href="#"><img src="https://i2.vanclimg.com/cms/20200526/pc526_03.jpg">
+            
+        </a></li>
+        <li><a href="#"><img src="https://i2.vanclimg.com/cms/20200526/pc526_03.jpg">
+            
+        </a></li>
+        <li><a href="#"><img src="https://i1.vanclimg.com/cms/20200526/pc526_04.jpg">
+           
+        </a></li>
+        <li><a href="#"><img src="https://i2.vanclimg.com/cms/20200526/pc526_03.jpg">
+           
+        </a></li>
+        <li><a href="#"><img src="https://i2.vanclimg.com/cms/20200526/pc526_03.jpg">
+           
+        </a></li>
+        <li><a href="#"><img src="https://i2.vanclimg.com/cms/20200526/pc526_03.jpg">
+           
+        </a></li>
+        <li><a href="#"><img src="https://i2.vanclimg.com/cms/20200526/pc526_03.jpg">
+            
+        </a></li>
+        <li><a href="#"><img src="https://i2.vanclimg.com/cms/20200526/pc526_03.jpg">
+           
+        
+        </a></li>
+        <li><a href="#"><img src="https://i2.vanclimg.com/cms/20200526/pc526_03.jpg">
+           
+        </a></li>
+        <li><a href="#"><img src="https://i2.vanclimg.com/cms/20200508/pc28_04.jpg">
+            
+        </a></li>
+        <li><a href="#"><img src="https://i2.vanclimg.com/cms/20200526/pc526_03.jpg">
+        
+           
+        </a></li>
+    </ol>
+</div>
+<div id="opti" class="container clear">
+    <h4>优选推荐</h4>
+    <div class="disc">
+        <div>
+            <img src="https://i1.vanclimg.com/cms/20200422/01.jpg">
+            <ul class="clear ">
+                <li>日式免烫衬衫</li>
+                <li>2件 8折 <span>159.2元</span></li>
+            </ul>
+        </div>
+        <div>
+            <img src="https://i1.vanclimg.com/cms/20200422/05.jpg">
+            <ul>
+                <li>日式免烫衬衫</li>
+                <li>2件 8折 <span>159.2元</span></li>
+            </ul>
+        </div>
+        <div>
+            <img src="https://i2.vanclimg.com/cms/20200422/02.jpg">
+            <ul>
+                <li>日式免烫衬衫</li>
+                <li>2件 8折 <span>159.2元</span></li>
+            </ul>
+        </div>
+        <div>
+            <img src="https://i1.vanclimg.com/cms/20200422/03.jpg">
+            <ul>
+                <li>日式免烫衬衫</li>
+                <li>2件 8折 <span>159.2元</span></li>
+            </ul>
+        </div>
+        <div>
+            <img src="https://i2.vanclimg.com/cms/20200422/06.jpg">
+            <ul>
+                <li>日式免烫衬衫</li>
+                <li>2件 8折 <span>159.2元</span></li>
+            </ul>
+        </div>
+        <div>
+            <img src="https://i1.vanclimg.com/cms/20200422/07.jpg">
+            <ul>
+                <li>日式免烫衬衫</li>
+                <li>2件 8折 <span>159.2元</span></li>
+            </ul>
+        </div>
+        <div>
+            <img src="https://i2.vanclimg.com/cms/20200422/04.jpg">
+            <ul>
+                <li>日式免烫衬衫</li>
+                <li>2件 8折 <span>159.2元</span></li>
+            </ul>
+        </div>
+        <div>
+            <img src="https://i2.vanclimg.com/cms/20200422/08.jpg">
+            <ul>
+                <li>日式免烫衬衫</li>
+                <li>2件 8折 <span>159.2元</span></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="lower" class="container clear">
+    <div class="title">下装推荐</div>
+    <div class="load">
+        <div>
+        <img src="https://i1.vanclimg.com/cms/20200422/09.jpg">
+        <ul class="clear">
+            <li>多袋收口工装裤</li>
+            <li>2件 8折 <span>119元</span></li>
+        </ul>
+    </div>
+
+    <div>
+        <img src="https://i1.vanclimg.com/cms/20200422/10.jpg">
+        <ul class="clear">
+            <li>针织裤</li>
+            <li>2件 8折 <span>79元</span></li>
+        </ul>
+    </div>
+    <div>
+        <img src="https://i2.vanclimg.com/cms/20200422/11.jpg">
+        <ul class="clear">
+            <li>修身铅笔裤</li>
+            <li>2件 8折 <span>99元</span></li>
+        </ul>
+    </div>
+    <div>
+        <img src="https://i1.vanclimg.com/cms/20200422/12.jpg">
+        <ul class="clear">
+            <li>修身铅笔裤</li>
+            <li>2件 8折 <span>49元</span></li>
+        </ul>
+    </div>
+    </div>
+</div>
+<div id="more" class="container clear">
+    <div class="title">更多精品</div>
+    <div class="mores clear">
+        <img src="https://i2.vanclimg.com/cms/20200422/13.jpg">
+        <img src="https://i1.vanclimg.com/cms/20200422/14.jpg">
+        <img src="https://i2.vanclimg.com/cms/20200422/15.jpg">
+        <img src="https://i1.vanclimg.com/cms/20200509/16.jpg">
+        <img src="https://i2.vanclimg.com/cms/20200422/17.jpg">
+        <img src="https://i1.vanclimg.com/cms/20200422/18.jpg">
+    </div>
+</div>
+<div id="serve" class="container clear">
+    <div class="lis">
+        <div class="lls">
+        <a href="#">
+        <img src="http://i4.vanclimg.com/cms/20160802/onlinecustomer.png">
+        <p class="p1">7×9小时在线客服</p></a>
+        </div>
+        <div class="lls">
+            <a href="#">
+            <img src="http://i2.vanclimg.com/cms/20160802/seven.png">
+            <p>7天内退货<br>购物满199元免运费</p></a>
+         </div>
+            <div class="lls">
+                <a href="#">
+                <img style="width: 100px; height: 100px;" src="http://i7.m.vancl.com/oms/2014_8_29_16_39_33_7709.jpg">
+                <p>扫描下载凡客客户端</p></a>
+             </div>
+    </div>
+    <ul>
+        <li>关于凡客<span>|</span></li>
+        <li>新手指南<span>|</span></li>
+        <li>配送范围及时间<span>|</span></li>
+        <li>支付方式<span>|</span></li>
+        <li>售后服务<span>|</span></li>
+        <li>帮助中心</li>
+    </ul>
+</div>
+<div id="foot" class="container-fluid">
+<div id="footer" class="container">
+    <div class="text">Copyright 2007 - 2020 vancl.com All Rights Reserved 京ICP证100557号 京公网安备11011502002400号 出版物经营许可证新出发京批字第直110138号
+        <br>凡客诚品（北京）科技有限公司
+    </div>
+    <div class="brand">
+        <img src="../images/002.png">
+        <img src="../images/003.png">
+        <img src="../images/004.png">
+        <img src="../images/005.png">
+    </div>
+</div>
+</div>
+
+
+
+<script src="../jquery.min.js"></script>
+
+<script src="../swiper-5.3.8/package/js/swiper.min.js"></script>
+
+<script src="../js/cookie.js"></script>
+<script>
+     var mySwiper = new Swiper('.swiper-container', {
+            direction: 'horizontal', // 横向切换
+            effect : 'fade',
+            loop: true, // 循环模式选项
+            autoplay : true,
+            speed :  800,
+            
+            autoplay : {
+                delay: 2000,
+            },
+           
+
+            // 如果需要分页器
+            pagination: {
+                el: '.swiper-pagination',
+                clickable :true,
+                bulletElement : 'li',
+             
+              
+            },
+         
+          
+         
+
+
+
+            // 如果需要前进后退按钮
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        })   
+     
+        $("ul li").hover(
+                function () {
+                    $(this).children('ol').slideDown();
+                },
+                function () {
+                    $(this).children('ol').slideUp();
+                }
+            );
+
+            var cook2 = getCookieObj(document.cookie);
+                console.log(cook2);
+                let cook3 = 0;
+                for (var key in cook2) {
+                    cook3 = cook2[key]
+                }
+                console.log(cook3);
+                if (cook3 == null) {
+                    $(".user").css('display', 'none');
+                    $('.quit').css('display', 'none')
+                } else {
+
+                    $(".login").css('display', "none");
+                    $(".user").html(cook3);
+                    $(".user").css('display', 'block');
+                    $('.quit').css('display', 'block');
+                    $('.reg').css('display', 'none')
+                }
+
+                $('.quit').click(function () {
+                let tc = window.confirm('是否确认退出登录');
+                if (tc == true) {
+                    setCookies("login", '1', -1);
+                }
+
+
+            })
+            $('.btu2').click(function(){
+                    var cook2 = getCookieObj(document.cookie);
+                        if (cook2.login === undefined) {
+                        let dl = window.confirm('您还没有登录，点击确认跳转登录页面');
+                        if (dl == true) {
+                            window.location.href = './login.html';
+
+                        }
+                    }
+                    else {
+                        window.location.href = './shooping.html';
+                    }
+
+
+                })
+                let str = decodeURIComponent(window.location.search);
+                       str = str.substr(1)*1;
+                       console.log(str);
+                 $('.numm').html(str+ ($('.numm').html())*1 );   
+                
+           $('.t1').html(setTime('2020-6-4 0:0:0'))
+           setInterval(function(){
+           $('.t1').html(setTime('2020-6-4 0:0:0'))
+           } , 1000)
+
+                  
+           $('.t2').html(setTime2('2020-6-4 0:0:0'))
+           setInterval(function(){
+           $('.t2').html(setTime2('2020-6-4 0:0:0'))
+           } , 1000)
+
+                  
+           $('.t3').html(setTime3('2020-6-4 0:0:0'))
+           setInterval(function(){
+           $('.t3').html(setTime3('2020-6-4 0:0:0'))
+           } , 1000)
+
+
+
+
+
+
+        // 计算时间差,返回字符串的函数
+        function setTime(endTime){
+            
+            var start = new Date();
+
+            
+            var end = new Date(endTime);
+
+            // 2,通过时间戳,来计算时间差
+            // 将时间差--毫秒,转化为秒,取整
+            var times = parseInt( ( end.getTime() - start.getTime() ) / 1000 );
+
+            var d = parseInt(times / (24*60*60)); 
+            if(d<10){
+                d = "0" + d
+            }
+
+            // 转化为小时 : 总秒数 % 一天的秒数 再除以 一小时的秒数   取整
+            var h = parseInt( (times % (24*60*60) ) / (60*60)); 
+            if(h<10){
+                h = "0" + h
+            }
+         
+            // 将结果,写成字符串,作为返回值
+            return h;
+        }
+        function setTime2(endTime) {
+              
+                var start = new Date();
+
+                
+                var end = new Date(endTime);
+
+                var times = parseInt((end.getTime() - start.getTime()) / 1000);
+
+               
+                var d = parseInt(times / (24 * 60 * 60));
+                if (d < 10) {
+                    d = "0" + d
+                }
+
+                // 转化为小时 : 总秒数 % 一天的秒数 再除以 一小时的秒数   取整
+                var h = parseInt((times % (24 * 60 * 60)) / (60 * 60));
+                if (h < 10) {
+                    h = "0" + h
+                }
+                // 转化为分钟 : 总秒数 % 一小时的秒数 再除以 一分钟的秒数   取整
+                var m = parseInt((times % (60 * 60)) / 60);
+                if (m < 10) {
+                    m = "0" + m
+                }
+        
+                return m;
+        }
+
+
+
+        function setTime3(endTime) {
+              
+                var start = new Date();
+
+              
+                var end = new Date(endTime);
+
+               
+                // 将时间差--毫秒,转化为秒,取整
+                var times = parseInt((end.getTime() - start.getTime()) / 1000);
+
+              
+                var d = parseInt(times / (24 * 60 * 60));
+                if (d < 10) {
+                    d = "0" + d
+                }
+
+             
+                var h = parseInt((times % (24 * 60 * 60)) / (60 * 60));
+                if (h < 10) {
+                    h = "0" + h
+                }
+              
+                var m = parseInt((times % (60 * 60)) / 60);
+                if (m < 10) {
+                    m = "0" + m
+                }
+               
+                var s = times % 60;
+                if (s < 10) {
+                    s = "0" + s
+                }
+                return s;
+        }
+
+</script>
+</body>
+</html>

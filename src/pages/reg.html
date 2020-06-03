@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="never">
+    <title>polo分类 - VANCL 凡客诚品</title>
+    <style>
+          *{margin: 0;padding: 0;}
+        a{text-decoration: none;font-size: 14px;}
+        .container{width: 1200px;margin: 0 auto;}
+        .clear:after { clear:both;content:'';display:block;width:0;height:0;visibility:hidden; }
+        #log{border-bottom: 2px solid #b81c22;padding: 10px;}
+        #map{}
+        #map .let{margin-top: 100px;margin-left: 100px;float: left;}
+       
+      
+        #map .rit{float: right;margin-top: 80px;color:#808080;}
+        #map .rit .new{font-size: 20px;border-bottom: 2px solid red;padding-bottom: 10px;margin-bottom: 20px;}
+        #map .rit .new .zhuce{margin-left: 100px;font-size: 14px;}
+        #map .rit .new .deng a{color: red;}  
+        #map input{margin: 5px 0;}
+        #map .sp1{display: flex;}
+        #map .s1{width: 150px;height: 35px;border: 1px solid #808080;display: block;margin-top: 20px;margin-left: 10px;color: red;font-size: 25px;text-align: center;line-height: 35px;}
+        #map .in4{width: 200px;height: 40px;margin: 15px 0;}
+        #map .in1{width: 400px;height: 40px;}
+        #map .in2{width: 400px; height: 40px;}
+        #map .in3{width: 400px;height: 40px;}
+        #map .tx{font-size: 14px;}
+        #map .mess{margin-left: 50px;}
+        #pass-box{display: flex;}
+        #pass-box span{width: 50px; height: 10px;display: block;}
+        #map .read{display: flex;margin: 20px 0;}
+        #map .read .s6{color: red;font-weight: 700;}
+        #map .btu{width: 400px;height: 50px;background-color: gray;color: white;}
+        #footer{color:#808080 ;font-size: 12px;margin-top: 50px;text-align: center;}
+        #footer .brand{margin-top: 30px;}
+    </style>
+</head>
+<body>
+    <div id="log" class="container"><img src="../images/001.png"></div>
+    <div id="map" class="container clear">
+        <div class="let">
+        <div class="img"><img src="http://i1.vanclimg.com/cms/20160902/login120412_newlogo.jpg"></div>
+      
+      </div>
+      <div class="rit clear">
+          <div class="new">注册新用户
+          <span class= "zhuce">我已经注册了，现在去<span class="deng"><a href="./login.html">登录</a></span></span> </div>
+         <div class="sp1"><input type="text" class="in4" placeholder="验证码"><span class="s1"></span></div> 
+         <span class="yan"></span><br>
+          <input type="text" class="in1" placeholder="注册账号"><br><span class="s2"></span><br>
+          <input type="password" class="in2" placeholder="设定登录密码"><span class="s3"></span><br>
+          <div id="pass-box"> <span></span><span></span><span></span></div>
+          <input type="password" class="in3" placeholder="再次输入密码"><span class="s4"></span><br>
+         <div class="read"><input class="in8" type="checkbox" ><div class="tx">请阅读<span class="s6">《VANCL凡客诚品服务条款》</span></div></div>
+          <button class="btu" disabled = ture >立即注册</button>
+          <div class="mess"></div>
+
+      </div>
+
+    </div>
+    <div id="footer" class="container">
+        <div class="text">Copyright 2007 - 2020 vancl.com All Rights Reserved 京ICP证100557号 京公网安备11011502002400号 出版物经营许可证新出发京批字第直110138号
+        </div>
+        <div class="brand">
+            <img src="../images/002.png">
+            <img src="../images/003.png">
+            <img src="../images/004.png">
+            <img src="../images/005.png">
+        </div>
+    </div>
+    <script src="../jquery-3.2.1.min.js"></script>
+    <script>
+
+   var str = '0123456789abcdefghijklmnopqrstuvwxyzABCEDEFGHIJKLMNOPQRSTUVWXYZ';
+    let in8 = document.querySelector('.in8');
+    let isCheck = {
+        user: false,
+        pass: false,
+        pass2: false,
+        yan: false,
+
+    };
+    let hasUser = true; //后端是否存在该用户名
+
+    $(function () {
+
+
+
+        in8.oninput = function () {
+            if ($('.in8').prop('checked') == true) {
+
+                $('.btu').removeAttr('disabled')
+            } else {
+                $('.btu').attr('disabled', true)
+            }
+        }
+        $('.s1').html(setVc(str));
+
+        $(".in1").blur(function () {
+
+            if (checkUserFront()) {
+                // 2、后端验证（存在性）
+                checkUserBack();
+            }
+        });
+
+        $(".in2").blur(function () {
+            checkPass();
+        })
+
+
+
+        $(".in2").change(function () {
+            $(".in3").val("");
+            $('.s4').html("");
+        })
+
+
+        $(".in3").blur(function () {
+            checkPass2();
+        });
+
+        $('.in4').blur(function () {
+            if ($(this).val().toLowerCase() == $('.s1').html().toLowerCase()) {
+                $('.yan').html('√')
+                isCheck.yan = true;
+            } else {
+                isCheck.yan = false;
+                $('.yan').html('验证码输入错误')
+            }
+        })
+        $('.s1').click(function () {
+            $('.s1').html(setVc(str))
+        })
+
+
+
+        $(".btu").click(function () {
+            let bul = 0;
+            for (let key in isCheck) {
+                if (isCheck[key]) { bul++; }
+            }
+            console.log("bul", bul);
+
+            // 保证前端验证没有问题
+            if (bul == 4) {
+                if (!hasUser) {
+                    regSave();
+                    return;
+                }
+            }
+            alert("亲，请检查您的信息是否输入完整或者是否正确");
+        });
+    })
+
+    function checkUserFront() {
+        let userIdDom = $(".in1");
+        // 用户名的规则：非空，长度在6-18位；由数字，字母下划线；
+        let reg = /^\w{6,18}$/;
+        if (reg.test(userIdDom.val())) {
+            isCheck.user = true;
+            return true;
+        } else {
+            $('.s2').html("×,亲，用户名规则：长度在6-18位；由数字，字母下划线");
+            isCheck.user = false;
+            return false;
+        }
+    }
+    function checkUserBack() {
+
+        $.get("../php/checkUser.php", { "username": $(".in1").val() }, (result) => {
+            if (result == "1") {
+                $('.s2').css("color", "red").html("该用户名已经存在");
+                hasUser = true;
+            } else {
+                $(".s2").css("color", "green").html("用户名没有人使用，赶紧注册吧！");
+                hasUser = false;
+            }
+        });
+    }
+    function checkPass() {
+        let passDom = $(".in2");
+        let passSpan = $("#pass-box").children();
+        passSpan.css("backgroundColor", "white");
+
+        // 密码的规则：长度在6-18位，数字字母下划线组成
+        let reg = /^\w{6,18}$/;
+        if (reg.test(passDom.val())) {
+            $('.s3').html("√");
+            isCheck.pass = true;
+
+            //1、统计字符类型的个数
+            let regLetter = /[a-zA-Z]/;
+            let regNum = /[0-9]/;  //数字
+            let regLine = /[_]/;  //划线
+            count = 0;
+            if (regLetter.test(passDom.val())) {
+                count++;
+            }
+            if (regNum.test(passDom.val())) {
+                count++;
+            }
+            if (regLine.test(passDom.val())) {
+                count++;
+            }
+            switch (count) {
+                // 强：三种字符
+                case 3: passSpan[2].style.backgroundColor = "green";
+                // 中：两种字符
+                case 2: passSpan[1].style.backgroundColor = "yellow";
+                // 弱：一种字符
+                case 1: passSpan[0].style.backgroundColor = "red";
+                default: ;
+            }
+        } else {
+
+            $('.s3').html("×");
+            isCheck.pass = false;
+        }
+    }
+
+
+
+    function checkPass2() {
+        let pass2Dom = $(".in3");
+        if (pass2Dom.val() === $(".in2").val()) {
+            isCheck.pass2 = true;
+            $('.s4').html("√");
+        } else {
+            isCheck.pass2 = false;
+            $('.s4').html("×");
+        }
+    }
+
+    function regSave() {
+
+        // let str = `username=${$("#userId").value}&userpass=${$("#passId").value}&usersex=${sex}`;
+        $.post(
+            "../php/regSave.php",
+            {
+                "username": $(".in1").val(),
+                "userpass": $(".in2").val(),
+
+            },
+            (result) => {
+                if (result == "1") {
+                    $(".mess").html("恭喜您，注册成功！请<a href='login.html'>登录</a>");
+                } else {
+                    $(".mess").html("不好意思，注册失败！");
+                }
+            }
+        );
+
+
+    }
+
+    function setVc(str) {
+        var vc = '';
+        while (vc.length < 6) {
+            var num = parseInt(Math.random() * str.length);
+
+            if (vc.indexOf(str[num]) === -1) {
+                vc += str[num];
+            }
+        }
+        return vc;
+    }
+
+
+    </script>
+
+</body>
+</html>

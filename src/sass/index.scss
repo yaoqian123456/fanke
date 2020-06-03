@@ -1,0 +1,26 @@
+@mixin t3($type:all,$time:1s) {
+    -webkit-transition:$type $time;
+    -moz-transition:$type $time;
+    -ms-transition:$type $time;
+    -o-transition:$type $time;
+    transition:$type $time;
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    width: 500px;
+    height: 50px;
+    background: blue;
+    @include t3();
+
+    &:hover{
+        width: 400px;
+        height: 100px;
+        background: red;
+    }
+}

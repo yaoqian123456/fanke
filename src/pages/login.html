@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>polo分类 - VANCL 凡客诚品</title>
+    <style>
+        *{margin: 0;padding: 0;}
+      a{text-decoration: none;font-size: 14px;}
+      .container{width: 1200px;margin: 0 auto;}
+      .clear:after { clear:both;content:'';display:block;width:0;height:0;visibility:hidden; }
+      #log{border-bottom: 2px solid #b81c22;padding: 10px;}
+        #map{}
+        #map .let{margin-top: 120px;margin-left: 150px;float: left;}
+        #map .rit{float: right;margin-top: 80px;color:#808080; margin-right: 80px;}
+        #map .rit .ritt{border: 1px solid #808080;height: 320px;}
+        #map .rit .new{font-size: 23px;padding-bottom: 10px;margin-bottom: 10px;font-weight: 700;}
+        #map .rit .new .zhuce{margin-left: 94px; font-size: 14px;font-weight: 300;}
+        #map .rit .new .deng a{color: red;}  
+        #map .rit .login1{display: flex;font-size: 15px;}
+        #map .rit .login1 div {width: 190px;height: 30px;background-color:whitesmoke;text-align: center;line-height: 30px;cursor: pointer;border-bottom: 1px solid #808080;}
+        #map .rit .login1 div.active{background-color: #bd050f;color: white;}
+        #map .rit .user{margin: 20px 0;}
+        #map .rit .pwd{margin-bottom: 20px;}
+        #map .rit .user input{width: 340px;height: 40px;background-color: white;margin-left: 20px;}
+        #map .rit .pwd input{width: 340px;height: 40px;background-color: white;margin-left: 20px;}
+        #map .rit .find{text-align: right;}
+        #map .rit .find a{font-size: 14px;color:#bd050f;font-weight: 800;margin-right: 20px;}
+        #map .rit  button{width: 340px;height: 50px;background-color:#bd050f;margin-left: 20px;margin-top: 10px;color: white;font-size: 20px;}
+        #map .rit .mess{text-align: center;font-size: 14px;color: red;font-weight: 600;margin: 20px 0;}
+
+
+      #footer{color:#808080 ;font-size: 12px;margin-top: 50px;text-align: center;border-top: 1px solid #808080;padding-top: 30px;}
+      #footer .brand{margin-top: 30px;}
+  </style>
+</head>
+<body>
+    <div id="log" class="container"><img src="../images/001.png"></div>
+
+    <div id="map" class="container clear">
+        <div class="let">
+            <div class="img"><img src="http://i1.vanclimg.com/cms/20160902/login120412_newlogo.jpg"></div>
+    
+        </div>
+        <div class="rit">
+            <div class="new">凡客 Vancl 登录
+                <span class="zhuce">没有账户免费<span class="deng"><a href="./reg.html">注册</a></span></span>
+            </div>
+            <div class="ritt ">
+                <div class="login1">
+                    <div class="active">普通登录</div>
+                    <div >快速登录</div>
+                </div>
+                <div class="user"><input class="in1" type="text" placeholder="请输入用户名"></div>
+                <div class="pwd"><input class="in2" type="password" placeholder="请输入密码"></div>
+                <div class="find"><a href="#">找回密码</a></div>
+                <button>登录</button>
+                <div class="mess"></div>
+            </div>
+        </div>
+    
+    </div>
+
+
+    <div id="footer" class="container">
+        <div class="text">Copyright 2007 - 2020 vancl.com All Rights Reserved 京ICP证100557号 京公网安备11011502002400号 出版物经营许可证新出发京批字第直110138号
+        </div>
+        <div class="brand">
+            <img src="../images/002.png">
+            <img src="../images/003.png">
+            <img src="../images/004.png">
+            <img src="../images/005.png">
+        </div>
+    </div>
+    <script src="../jquery-3.2.1.min.js"></script>
+    <script src="../js/cookie.js"></script>
+    <script>
+        $(function(){
+            $('button').click(function(){
+                if($('.in1').val() == ''){
+                    alert('请输入用户名');
+                    return;
+                }
+                if($('.in2').val() == ''){
+                    alert('请输入密码');
+                    return;
+                }
+                $.ajax({
+                    url : '../php/loginCheck.php',
+                    type : 'post',
+                    data:{username : $('.in1').val(),userpass: $('.in2').val() },
+                     dataType:'json',
+                    success:function(res){
+                        if(res == 1){
+                           
+                            setCookies( "login",$('.in1').val(), 7*24*60*60);
+                            alert('您登陆成功，点击确定返回');
+                            window.location.href = './index.html'
+                        }else{
+                          
+                            $('.mess').html('您登录的账号或密码有误,请重新登陆')
+                        }
+                    }
+                })
+            })
+            
+
+        })
+
+
+
+
+       
+    </script>
+</body>
+</html>

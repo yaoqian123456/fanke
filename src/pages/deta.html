@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>polo分类 - VANCL 凡客诚品</title>
+    <link rel="stylesheet" href="../swiper-5.3.8/package/css/swiper.min.css">
+    <link rel="stylesheet" href="../font/font_1839443_h7lb25z13k/iconfont.css">
+    <style>
+          *{margin: 0;padding: 0;}
+        a{text-decoration: none;font-size: 14px;}
+        ul li{list-style: none;}
+        ol li{list-style: none;}
+        .container-fluid{width: 100%;}
+        .container{width: 1200px;margin: 0 auto;}
+        .clear:after { clear:both;content:'';display:block;width:0;height:0;visibility:hidden; }
+    /*side样式*/
+        #side{background-color:#f7f7f7;font-size: 14px;border-bottom: 1px solid #cccccc;}
+        #side a{color:  #808080;}
+        #side .rit{float: right;display: flex;line-height: 30px;color: #808080;}
+        #side .rit .wel{margin-right: 10px;}
+        #side .rit .reg{margin-right: 10px;}
+        #side .rit .quit{margin-right: 10px;}
+        #side .rit .login .s1{margin-left: 10px;}
+        #side .rit .login{margin-right: 10px;}
+        #side .rit .user{margin-right: 10px;}
+        
+        #side .rit .ding{margin-right: 10px;}
+        #side .rit  .gonggao{margin-right: 10px;}
+        #side .iconweixin{font-size: 20px;color: #41b135;margin-right: 5px;}
+        #side .iconweibo{font-size: 20px;color: #e41824;}
+        /* header样式*/
+        #header{}
+        #header .rit{float: right;font-size: 14px;color: #808080;margin-top: 40px;}
+        #header input{width: 260px;height: 25px;color: black;}
+        #header .btu1{height: 28px;width: 50px;background-color: #b71c22;color: white;margin-right: 20px;}
+        #header .btu2{height: 28px;width: 90px;background-color:#b71c22;color: white;}
+        #header .btu2 .icongouwuche{}
+        #header .rit .hot{margin-top: 10px;margin-left: 20px;}
+        #header .log{float: left;margin-top: 30px;}
+        #header .log img{width: 150px;height: 50px;}
+
+
+        #nav{}
+        #nav ul{float: right;margin-top: 30px;margin-bottom: 40px;}
+        #nav ul a{color: #808080;font-size: 16px;}
+        #nav ul li{display: inline-block;position: relative;line-height: 25px;}
+        #nav ul li span{padding: 0 20px;color:#808080 ;}
+        #nav ul li ol{position: absolute;top: 25px;left: -20px;background-color: white;line-height: 40px;display: none;z-index: 2;width: 90px;text-align: center;
+                border-top: 3px solid red;}
+     #deta .tit{padding-bottom: 20px;border-bottom:1px solid  #cccccc ;}
+    #deta h3{float: left;}
+    #deta .rit{float: right;}
+    #deta .rit span{padding: 0px 20px; border-right: 1px solid #808080;color:#808080 ;font-size: 14px;}
+    #deta .inf{font-size: 14px;color:#808080  ;border-top: 1px solid #808080;padding-top: 50px;margin-top: 50px;margin-bottom: 50px;}
+     .map{margin-left: 100px;margin-top: 50px;position: relative;}
+     .cont{position: relative;height: 400px;width: 400px;}
+     .pic li{position: absolute;left: 0;top: 0;border: 1px solid black;display: none;}
+     .pic li img{width: 100%;height: 100%;}
+     .pic li.active{display: block;}
+     .bpic {position: absolute;left: 450px;top: -50px;display: none;border: 1px solid yellow;width: 400px;height: 400px;
+         background:url('${res.goods_big_logo}')no-repeat 0 0;  background-size: 800px;  z-index: 5;   }
+   
+     .spic li{display: inline-block;width: 100px;height: 100px;margin-top: 50px;margin-right: 10px;}
+     .spic li img{width: 100%; height: 100%;}
+     .spic li.active{border: 2px solid blue;}
+     .mask{width: 200px;height: 200px;background-color:#f8e8a1; opacity: .6;position: absolute;left: 0;top: 0;display: none;}
+     #deta .rt{position: absolute;right: 250px;top: 50px;color:  #808080;}
+     #deta .rt .pir{color: red;font-size: 16px;font-weight: 600;margin: 10px 0;}
+     #deta .rt .ho{width: 100px;height: 20px;text-align: center;background-color: red;line-height: 20px;font-size: 10px;color: white;margin-bottom: 30px;}
+     #deta .rt .num{font-size: 14px;margin-bottom: 20px;}
+     #deta .rt .num select{width: 50px;}
+     #deta .rt .num span{}
+     #deta .rt .size{font-size: 12px;margin: 20px 0;}
+     #deta .rt .size span{width:30px ;height: 30px;line-height: 30px;text-align: center;border: 1px solid #808080;;  display: inline-block;margin: 0 5px;}
+     #deta .rt .buy{font-size: 16px;}
+     #deta .rt .buy span{margin-right: 5px;}
+     #deta .rt .buy .b1{width: 180px; height: 40px;line-height: 40px;text-align: center;background-color: #808080;border: 1px solid #b71c22;
+                                    margin-right: 20px;color: #b71c22;}
+     #deta .rt .buy .b2 {width: 180px; height: 40px;line-height: 40px;text-align: center;background-color:#b71c22;color: white;
+                                    }
+
+     #serve{margin-top: 80px;border: 1px solid  #eaebef;}
+     #serve .lis{display: flex;margin-top: 40px;}
+     #serve .lis .lls{width: 33%;text-align: center;border-right: 1px solid  #eaebef;}
+     #serve .lis .lls:nth-child(3){border: none;}
+     #serve .lis .lls p{margin-top: 20px;color: #808080 ;}
+     #serve .lis .lls .p1{width: 150px;height: 30px;background-color:#bd050f;text-align: center;line-height: 30px;color: wheat;margin-left: 120px;margin-top: 30px;}
+     #serve ul{text-align: center;margin: 30px 40px;background-color:#ecedf1;padding: 15px 0;}
+     #serve ul li{display: inline-block;font-size: 12px;}
+     #serve ul li span{margin: 0 50px;font-size: 20px;color:#808080;}
+
+     #foot{border-top: 1px solid #bd050f;margin-top: 30px;margin-bottom: 20px;}
+     #footer{color:#808080 ;font-size: 12px;margin-top: 10px;text-align: center;padding-top: 10px;}
+     #footer .text{line-height: 25px;margin-bottom: 20px;}
+     #footer .brand{margin-top: 10px;}
+    
+    </style>
+</head>
+<body>
+    <div id="side" class="container-fluid">
+        <div class="container clear">
+            <div class="rit ">
+                <div class="wel">您好,欢迎光临凡客诚品！</div>
+                <div class="login"><a href="./login.html">登录</a> <span class="s1">|</span></div>
+                <div class="user"></div>
+                <div class="reg"><a href="./reg.html">注册</a> </div>
+                <div class="quit"><a href="./index.html">退出登录</a> </div>
+                <div class="ding"><a href= "">我的订单</a></div>
+                <div class="gonggao"><a href="">网站公告</a></div><span class="iconfont iconweixin"></span><span class="iconfont iconweibo"></span>
+            </div>
+        </div>
+      </div>
+      <div id="header" class="container clear">
+
+          <div class="rit">
+              <input type="text"><button class="btu1">搜索</button><button class="btu2"><span class="iconfont icongouwuche"></span>购物车<span class="numm"></span></button>
+              <div class="hot">热门搜索： 免烫衬衫 T恤 polo 卫衣 牛仔裤 帆布鞋 水柔棉</div>
+          </div>
+      </div>
+      <div id="nav" class="container clear">
+        <a href="./index.html"><img src="../images/001.png"></a>
+         <ul>
+            <ul>
+                <li class="home"><a href="#">首页</a><span>|</span>
+            
+                </li>
+        
+                <li><a href="./list.html?cat_one_id=内衣配饰">内衣配饰</a><span>|</span>
+                    <ol>
+                        <li><a href="./list.html?cat_one_id=厨卫电器">厨卫</a></li>
+                        
+                      
+                        <li><a href="./list.html?cat_one_id=居家生活">居家生活</a></li>
+                        <li><a href="./list.html?cat_one_id=手机相机">手机相机</a></li>
+                        <li><a href="#">变形金刚</a></li>
+                    </ol>
+                </li>
+                <li><a href="./list.html?cat_one_id=男装">男装</a><span>|</span>
+                    <ol>
+                        <li><a href="./list.html?cat_one_id=智能设备">智能设备</a></li>
+                        <li><a href="./list.html?cat_one_id=汽车生活">汽车生活</a></li>
+                        <li><a href="./list.html?cat_one_id=热门推荐">热门推荐</a></li>
+                    
+                    </ol>
+                </li>
+                <li><a href="./list.html?cat_one_id=女装">女装</a><span>|</span>
+                <ol>
+                        <li><a href="./list.html?cat_one_id=电脑办公">电脑办公</a></li>
+                        <li><a href="./list.html?cat_one_id=皮具箱包">皮具箱包</a></li>
+                        <li><a href="./list.html?cat_one_id=邮币乐器">邮币乐器</a></li>
+                        <li><a href="#">变形金刚</a></li>
+                        <li><a href="#">变形金刚</a></li>
+                        <li><a href="#">变形金刚</a></li>
+                    </ol>
+                </li>
+                <li><a href="./list.html?cat_one_id=女鞋">女鞋</a><span>|</span>
+                    <ol>
+                        <li><a href="./list.html?cat_one_id=钟表眼镜">钟表眼镜</a></li>
+                        <li><a href="#">致敬系列</a></li>
+                        <li><a href="#">变形金刚</a></li>
+                        <li><a href="#">变形金刚</a></li>
+                        <li><a href="#">变形金刚</a></li>
+                        <li><a href="#">变形金刚</a></li>
+                    </ol>
+                </li>
+                <li><a href="./list.html?cat_one_id=其他">奶粉尿裤</a><span>|</span>
+                    <ol>
+                        <li><a href="#">变形金刚</a></li>
+                        <li><a href="#">致敬系列</a></li>
+                        <li><a href="#">变形金刚</a></li>
+                        <li><a href="#">变形金刚</a></li>
+                        <li><a href="#">变形金刚</a></li>
+                        <li><a href="#">变形金刚</a></li>
+                    </ol>
+                </li>
+                <li><a href="./list.html?cat_one_id=海外购">海外购</a><span>|</span>
+                    <ol>
+                        <li><a href="#">变形金刚</a></li>
+                        <li><a href="#">致敬系列</a></li>
+                        <li><a href="#">变形金刚</a></li>
+                        <li><a href="#">变形金刚</a></li>
+                        <li><a href="#">变形金刚</a></li>
+                        <li><a href="#">变形金刚</a></li>
+                    </ol>
+                </li>
+               
+                <li><a href="./list.html?cat_one_id=男鞋">男鞋</a><span>|</span>
+                    <ol>
+                        <li><a href="#">变形金刚</a></li>
+                        <li><a href="#">致敬系列</a></li>
+                        <li><a href="#">变形金刚</a></li>
+                        <li><a href="#">变形金刚</a></li>
+                        <li><a href="#">变形金刚</a></li>
+                        <li><a href="#">变形金刚</a></li>
+                    </ol>
+                </li>
+                <li><a href="./list.html?cat_one_id=童装玩具">童装玩具</a><span>|</span>
+                    <ol>
+                        <li><a href="#">变形金刚</a></li>
+                        <li><a href="#">致敬系列</a></li>
+                        <li><a href="#">变形金刚</a></li>
+                        <li><a href="#">变形金刚</a></li>
+                        <li><a href="#">变形金刚</a></li>
+                        <li><a href="#">变形金刚</a></li>
+                    </ol>
+                </li>
+                <li><a href="./list.html?cat_one_id=个护健康">个护健康</a><span>|</span>
+                    <ol>
+                        <li><a href="#">变形金刚</a></li>
+                        <li><a href="#">致敬系列</a></li>
+                        <li><a href="#">变形金刚</a></li>
+                        <li><a href="#">变形金刚</a></li>
+                        <li><a href="#">变形金刚</a></li>
+                        <li><a href="#">变形金刚</a></li>
+                    </ol>
+                </li>
+            </ul>
+     </div>
+    <div id="deta" class="container ">
+      
+    </div>
+
+    <div id="serve" class="container clear">
+        <div class="lis">
+            <div class="lls">
+            <a href="#">
+            <img src="http://i4.vanclimg.com/cms/20160802/onlinecustomer.png">
+            <p class="p1">7×9小时在线客服</p></a>
+            </div>
+            <div class="lls">
+                <a href="#">
+                <img src="http://i2.vanclimg.com/cms/20160802/seven.png">
+                <p>7天内退货<br>购物满199元免运费</p></a>
+             </div>
+                <div class="lls">
+                    <a href="#">
+                    <img style="width: 100px; height: 100px;" src="http://i7.m.vancl.com/oms/2014_8_29_16_39_33_7709.jpg">
+                    <p>扫描下载凡客客户端</p></a>
+                 </div>
+        </div>
+        <ul>
+            <li>关于凡客<span>|</span></li>
+            <li>新手指南<span>|</span></li>
+            <li>配送范围及时间<span>|</span></li>
+            <li>支付方式<span>|</span></li>
+            <li>售后服务<span>|</span></li>
+            <li>帮助中心</li>
+        </ul>
+    </div>
+    <div id="foot" class="container-fluid">
+    <div id="footer" class="container">
+        <div class="text">Copyright 2007 - 2020 vancl.com All Rights Reserved 京ICP证100557号 京公网安备11011502002400号 出版物经营许可证新出发京批字第直110138号
+            <br>凡客诚品（北京）科技有限公司
+        </div>
+        <div class="brand">
+            <img src="../images/002.png">
+            <img src="../images/003.png">
+            <img src="../images/004.png">
+            <img src="../images/005.png">
+        </div>
+    </div>
+    </div>
+    
+    
+<script src="../jquery.min.js"></script>
+<script src="../swiper-5.3.8/package/js/swiper.min.js"></script>
+<script src="../js/cookie.js"></script>
+<script src="../js/anmplify.js"></script>
+<script src="../jquery-pagination/jquery.pagination.js"></script>
+<script>
+
+let str = decodeURIComponent(window.location.search);
+       str = str.substr(1);
+       console.log(str)
+       let result = [];
+  
+    const arr1 = str.split('=');
+    console.log(arr1);
+    
+     
+        $("ul li").hover(
+                function () {
+                    $(this).children('ol').slideDown();
+                },
+                function () {
+                    $(this).children('ol').slideUp();
+                }
+            );
+
+            var cook2 = getCookieObj(document.cookie);
+                console.log(cook2);
+                let cook3 = 0;
+                for (var key in cook2) {
+                    cook3 = cook2[key]
+                }
+                console.log(cook3);
+                if (cook3 == null) {
+                    $(".user").css('display', 'none');
+                    $('.quit').css('display', 'none')
+                } else {
+
+                    $(".login").css('display', "none");
+                    $(".user").html(cook3);
+                    $(".user").css('display', 'block');
+                    $('.quit').css('display', 'block');
+                    $('.reg').css('display', 'none')
+                }
+
+                $('.quit').click(function () {
+                let tc = window.confirm('是否确认退出登录');
+                if (tc == true) {
+                    setCookies("login", '1', -1);
+                }
+
+
+            })
+
+          
+            $('.btu2').click(function(){
+                    var cook2 = getCookieObj(document.cookie);
+                        if (cook2.login === undefined) {
+                        let dl = window.confirm('您还没有登录，点击确认跳转登录页面');
+                        if (dl == true) {
+                            window.location.href = './login.html';
+
+                        }
+                    }
+                    else {
+                        window.location.href = './shooping.html';
+                    }
+
+
+                })
+
+ 
+    $.ajax({
+      url:'../php/goods_detail.php',
+      type:'post',
+      data:{goods_id : arr1[1]},
+      dataType : 'json',
+      success : function(res){
+
+        console.log(res);
+
+        
+        result = res;
+      
+
+       
+        let str = '';
+        str = `<div class="tit clear">
+            <h3>${res.goods_name}</h3>
+            <div class="rit"><span>产品描述</span><span>评论</span><span>提问</span></div>
+        </div>
+        <div class="map">
+            <div class="cont">
+                <ul class="pic">
+                    <li class="active"><img src="${res.goods_big_logo}" alt="">
+                    </li>
+                </ul>
+                <div class="mask"></div>
+                <div class="bpic" style ="background:url('${res.goods_big_logo}')no-repeat 0 0"></div>
+                </div>
+    
+        <div class="rt">
+            <div class="pir">售价:￥${res.goods_price}元</div>
+            <div class="ho">冲100，返100，点击充值</div>
+            <div class="size">尺码： <span class="s1">S</span><span class="s1">M</span><span class="s1">L</span><span class="s1">XL</span><span class="s1">XXL</span></div>
+            <div class="num">数量：
+                <select class = "sda">
+                    <option value ="1">1</option>
+                    <option value ="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                  </select>
+             </div>
+            <div class="buy"><button class="b1">立即购买</button><button class="b2"><span class="iconfont icongouwuche"></span>加入购物车</button></div>
+           
+
+        </div>
+        <div class = "inf">详情图片<br>
+        注： 商品实际颜色以静物图为准</div>
+        <div class="pic2"> ${res.goods_introduce}</div>
+        </div>`;
+            
+           
+            $('#deta').html(str);
+      }
+    })
+       
+   
+    $('#deta').on('click' , '.b2' , function(){
+
+    //    console.log($('.sda').val())
+   
+        $('.numm').html( ( $('.numm').html()*1 ) + (parseInt( $('.sda').val())  ) );
+        
+       
+        const cookieObj = getCookieObj(document.cookie);
+
+        if( cookieObj.login === undefined ){
+        
+            let bool = window.confirm('您还没有登录,点击确定,跳转登录页面');
+            if(bool === true){
+           
+              window.location.href = `./login.html?${window.location.href}`;
+            }else{
+            
+              return false;
+            }
+        }else if(cookieObj.login === cook3){
+
+            window.alert('加入购物车成功');
+            // window.location.href = './shooping.html';
+
+           
+            
+            if(localStorage.getItem('cart') === null  ){
+            
+              result.num = parseInt( $('.sda').val()); 
+              console.log( result.num)    // 购买数量信息,第一次默认是1
+              result.buy = true   // 默认当前商品是购买状态
+           
+            
+            
+              var arr = [];
+            
+              arr.push(result);
+              
+            }else{
+             
+               let bool = true;
+
+            
+              var arr = JSON.parse(localStorage.getItem('cart')) ;
+
+             
+              arr.forEach(function(item){
+               
+                if(item.goods_id === result.goods_id){
+                    item.num += parseInt( $('.sda').val());
+                 
+                     bool = false;
+                }
+              
+              })
+              
+              
+              if(bool === true){
+                result.buy = true;
+                result.num = parseInt( $('.sda').val());
+                arr.push(result);  
+              
+                
+              }
+
+            }
+
+            
+            localStorage.setItem('cart' , JSON.stringify(arr) );
+            console.log(arr)
+           
+        }
+    })
+
+    $('#deta').on('mouseover' , '.map' , function(){
+
+   
+     let odiv = document.querySelector('.map');
+
+        const obj = new Amplify(odiv);
+        obj.int();
+    })
+    $('.home').click(function(){
+      let getnum =  $('.numm').html()
+      window.location.href = `./index.html?${getnum}`
+    })
+
+</script>
+
+
+</body>
+</html>

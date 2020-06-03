@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>polo分类 - VANCL 凡客诚品</title>
+    <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/cart.css">
+
+
+    <style>
+             *{margin: 0;padding: 0;}
+        a{text-decoration: none;font-size: 14px;}
+        ul li{list-style: none;}
+        ol li{list-style: none;}
+        .container-fluid{width: 100%;}
+        .container{width: 1200px;margin: 0 auto;}
+        .clear:after { clear:both;content:'';display:block;width:0;height:0;visibility:hidden; }
+    /*side样式*/
+        #side{background-color:#f7f7f7;font-size: 14px;border-bottom: 1px solid #cccccc;}
+        #side a{color:  #808080;}
+        #side .rit{float: right;display: flex;line-height: 30px;color: #808080;}
+        #side .rit .wel{margin-right: 10px;}
+        #side .rit .reg{margin-right: 10px;}
+        #side .rit .quit{margin-right: 10px;}
+        #side .rit .login .s1{margin-left: 10px;}
+        #side .rit .login{margin-right: 10px;}
+        #side .rit .user{margin-right: 10px;}
+        
+        #side .rit .ding{margin-right: 10px;}
+        #side .rit  .gonggao{margin-right: 10px;}
+        #side .iconweixin{font-size: 20px;color: #41b135;margin-right: 5px;}
+        #side .iconweibo{font-size: 20px;color: #e41824;}
+
+        #shopping{}
+        #shopping .log img{border: 1px solid #808080;padding:0 40px;margin-top: 20px;width: 200px;}
+        #shopping .odd{margin: 20px 0;color: #808080;;}
+        #shopping .odd span{width: 200px;font-size: 14px;height: 30px;background-color:#cccccc ;display: inline-block;margin: 0 5px;text-align: center;line-height: 30px;}
+        #shopping .odd span:nth-child(1){background-color: #e41824 ;color: white;}
+        #shopping .title{font-size: 20px;font-weight: 800;margin: 10px 0;}
+        #shopping .hint{font-size: 12px;color: #cccccc;margin-bottom: 20px;}
+        #shopping .bg-info{height: 50px;font-size: 14px;color: black;}
+        #shopping .all {margin-top: -8px;}
+        #shopping .all .del{font-size: 14px;color: black;background-color:  #cccccc;border: none;}
+        #shopping .media-heading{font-size: 14px;}
+        #shopping .media-body .pir{font-size: 14px;margin-top: 10px;padding-right: 20px;position: absolute;left: 300px;top: 0px;}
+        #shopping .media-body .del{float: right;}
+        #shopping .pull-right{float: left!important;margin-left: 400px;}
+        #shopping .sc{  color: #a37d7d;border: none;background-color: white;margin-right: 20px;margin-left: 20px;}
+        #shopping .panel-footer{background-color: white;}
+        #shopping .fex{display: flex;border: 1px solid #cccccc ;height: 100px;}
+        #shopping .hoot{}
+        #shopping h4{font-size: 14px;font-weight: normal;margin-top: 20px;width: 450px;margin-left: 20px;}
+        #shopping h4 span{color: #e41824;font-size: 20px;font-weight: 800;}
+        #shopping h4 .s1{color:black;font-size: 15px;}
+        #shopping .hott{display: flex;margin-left: 400px;margin-top: 30px;}
+        #shopping .hott .bb1{background-color:#808080 ;color:#cccccc ;width: 120px;height: 40px;text-align: center;line-height: 40px;margin-right: 10px;border-radius: 6px;}
+        #shopping .hott  a{color:#cccccc ;}
+        #shopping .hott .bb2{background-color: #bd050f;color:white ;width: 150px;height: 40px;text-align: center;line-height: 40px;border-radius: 6px;}
+
+     #foot{border-top: 1px solid #bd050f;margin-top: 30px;margin-bottom: 20px;}
+     #footer{color:#808080 ;font-size: 12px;margin-top: 10px;text-align: center;padding-top: 10px;}
+     #footer .text{line-height: 25px;margin-bottom: 20px;}
+     #footer .brand{margin-top: 10px;}
+    </style>
+
+</head>
+<body>
+    <div id="side" class="container-fluid">
+        <div class="container clear">
+            <div class="rit ">
+                <div class="wel">您好,欢迎光临凡客诚品！</div>
+                <div class="login"><a href="./login.html">登录</a> <span class="s1">|</span></div>
+                <div class="user"></div>
+                <div class="reg"><a href="./reg.html">注册</a> </div>
+                <div class="quit"><a href="./index.html">退出登录</a> </div>
+                <div class="ding"><a href= "">我的订单</a></div>
+                <div class="gonggao"><a href="">网站公告</a></div><span class="iconfont iconweixin"></span><span class="iconfont iconweibo"></span>
+            </div>
+        </div>
+      </div>
+
+      <div id="shopping" class="container clear">
+        <div class="log"><a href="./index.html"><img src="../images/001.png"></a></div>
+          <div class="odd"><span>1.我的购物车</span><span>2.填写核对信息单</span><span>3.成功提交订单</span></div>
+          <div class="title">我的购物车</div>
+          <div class="hint">温馨提示：1.选购清单中的商品无法保留库存，请您及时结算。2.商品的价格和库存将以订单提交时为准。3.促销活动满减优惠将均摊至商品小计中。
+        </div>
+        <div class="ush">
+
+        </div>
+      
+
+          <!-- <div class = "hott">
+            <div class="bb1"><a href="./index.html">继续购物</a></div>
+            <button class ="bb2">去结算</button>
+          </div> -->
+        
+      </div>
+
+      <div id="foot" class="container-fluid">
+        <div id="footer" class="container">
+            <div class="text">Copyright 2007 - 2020 vancl.com All Rights Reserved 京ICP证100557号 京公网安备11011502002400号 出版物经营许可证新出发京批字第直110138号
+                <br>凡客诚品（北京）科技有限公司
+            </div>
+            <div class="brand">
+                <img src="../images/002.png">
+                <img src="../images/003.png">
+                <img src="../images/004.png">
+                <img src="../images/005.png">
+            </div>
+        </div>
+        </div>
+        <script src="../jquery.min.js"></script>
+        <script src="../js/cookie.js"></script>
+        <script>
+              var cook2 = getCookieObj(document.cookie);
+                console.log(cook2);
+                let cook3 = 0;
+                for (var key in cook2) {
+                    cook3 = cook2[key]
+                }
+                console.log(cook3);
+                if (cook3 == null) {
+                    $(".user").css('display', 'none');
+                    $('.quit').css('display', 'none')
+                } else {
+
+                    $(".login").css('display', "none");
+                    $(".user").html(cook3);
+                    $(".user").css('display', 'block');
+                    $('.quit').css('display', 'block');
+                    $('.reg').css('display', 'none')
+                }
+
+                $('.quit').click(function () {
+                let tc = window.confirm('是否确认退出登录');
+                if (tc == true) {
+                    setCookies("login", '1', -1);
+                }
+
+
+            })
+            $('.btu2').click(function(){
+                    var cook2 = getCookieObj(document.cookie);
+                        if (cook2.login === undefined) {
+                        let dl = window.confirm('您还没有登录，点击确认跳转登录页面');
+                        if (dl == true) {
+                            window.location.href = './login.html';
+
+                        }
+                    }
+                    else {
+                        window.location.href = './shooping.html';
+                    }
+
+
+                })
+
+
+
+
+
+    const cateArr = JSON.parse(localStorage.getItem('cart'));
+    console.log(cateArr)
+    setPage(cateArr);
+
+    function setPage(array) {
+      // 定义变量来存储数据,定义在函数中
+      let NUM = 0;
+      let TYPE = 0;
+      let PAY = 0;
+
+
+      // 2,根据数据内容来生成页面
+      // 生成的页面部分分为三部分
+
+      // 第一部分,是页面的上方内容,是固定内容
+      let str = `
+
+      <div class="panel panel-info ">
+        <div class="panel-body bg-info">
+          <div class="checkbox all">
+            <label>
+              <button class="del btn btn-danger" name="not">全选</button>
+            </label>
+          </div>
+        </div>
+        <div class="panel-footer">
+          <ul class="cart-list">`;
+
+      // 第二部分是商品的信息部分,是根据 购物车信息 循环遍历生成的
+      // 定义写的数据,选中效果,使用三元运算符,根据 buy的信息来判断
+      // 定义 减 标签 如果数值是 1,禁用标签,不能再减了
+      // 定义 加 标签 如果数值是 库存,禁用标签,不能再加了
+      array.forEach(function (item) {
+        str += `<li class="cart-item">
+                  <div class="left">
+                    <input name="checked" goods_id="${item.goods_id}" type="checkbox" ${item.buy === true ? 'checked' : ''}>
+                  </div>
+                  <div class="right">
+                    <div class="media">
+                      <div class="media-left">
+                        <a href="#">
+                          <img class="media-object" src="${item.goods_small_logo}" alt="...">
+                        </a>
+                      </div>
+                      <div class="media-body">
+                        <h4 class="media-heading">${item.goods_name}</h4>
+                        <p class = "p1">
+                          
+                        </p>
+                        <div class="btn-group pull-right" role="group" aria-label="...">
+                         
+                          <div class = "pir">￥${item.goods_price}</div>
+                          <button type="button" name="lost" goods_id="${item.goods_id}" class="btn btn-default" ${ item.num == 1 ? 'disabled' : '' }>-</button>
+                          <button type="button" class="btn btn-default" disabled>${item.num}</button>
+                          <button type="button" name="odd" goods_id="${item.goods_id}" class="btn btn-default" ${ item.num == item.goods_number ? 'disabled' : '' }>+</button>
+                        </div>
+                        <div name="del" goods_id="${item.goods_id}"  class="del btn btn-danger sc">删除</div>
+                      </div>
+                    </div>
+                  </div>
+                </li>`;
+      
+      
+        if(item.buy === true){
+          TYPE++;           // 种类++
+          NUM += item.num;  // 数量是 += 累加
+          PAY += item.num * item.goods_price;   // 钱数是 数量*单价
+        }
+      
+      })
+
+      // 计算判断数据信息
+      
+
+
+      // 第三部分
+      // 最后结束的部分
+      // 有小数参与,会造成数值计算时精度丢失,需要保留两位小数
+      str += `</ul>
+        </div>
+      </div>
+      </div>
+      <div class = "fex">
+      <div>
+        <h4>数量总计:<span class = "s1">${NUM}件</span></h4> 
+        <h4>产品金额总计:（不含运费）<span>￥${ parseInt(PAY*100)/100 }元</span></h4>  
+      
+      </div>
+      <div class = "hott">
+            <div class="bb1"><a href="./index.html">继续购物</a></div>
+            <button class ="bb2">去结算</button>
+          </div>
+          </div>
+      `;
+
+
+      $('.ush').html(str);
+
+    };
+
+    // 通过事件委托,给动态生成的内容,添加点击事件
+    // 如果只是少量标签,使用jQuery事件委托更简单
+    // 如果是大量事件委托,用js的语法更简单
+
+    const oDiv = document.querySelector('.ush');
+
+    oDiv.addEventListener('click' , function(e){
+      // 点击的是全选标签
+      if(e.target.getAttribute('name') === 'all'){
+        // 给数组中的所有数据,buy属性都设定为true
+        cateArr.forEach(function(item){
+          item.buy = true;
+        })
+      }
+
+      // 点击的是不选标签
+      if(e.target.getAttribute('name') === 'no'){
+        // 给数组中的所有数据,buy属性都设定为false
+        cateArr.forEach(function(item){
+          item.buy = false;
+        })
+      }
+
+      // 点击的是反选标签
+      if(e.target.getAttribute('name') === 'not'){
+        // 给数组中的所有数据,buy属性都设定为原始数值取反
+        cateArr.forEach(function(item){
+          item.buy = !(item.buy);
+        })
+      }
+
+      if(e.target.getAttribute('name') === 'checked'){
+        // 获取 goods_id 的属性
+        let goods_id = e.target.getAttribute('goods_id');
+        cateArr.forEach(function(item){
+          // 如果当前item的goods_id 与 标签中存储的goods_id相同
+          if(item.goods_id === goods_id){
+            // 设定 数据 的 购买数据,是复选框当前的数据
+            item.buy = $(e.target).prop('checked');
+          }
+        })
+
+      }
+
+      // 我不要了 按钮
+      if(e.target.getAttribute('name') === 'del'){
+        // 获取 goods_id 的属性
+        let goods_id = e.target.getAttribute('goods_id');
+        cateArr.forEach(function(item , key){
+          // 如果当前item的goods_id 与 标签中存储的goods_id相同
+          if(item.goods_id === goods_id){
+            // 从当前的索引下标开始,删除数组中的一个数据单元
+            cateArr.splice(key,1);
+          }
+        })
+      }
+
+      // 添加 按钮
+      if(e.target.getAttribute('name') === 'odd'){
+        // 获取 goods_id 的属性
+        let goods_id = e.target.getAttribute('goods_id');
+        cateArr.forEach(function(item , key){
+          // 如果当前item的goods_id 与 标签中存储的goods_id相同
+          if(item.goods_id === goods_id){
+            // 购买数量++
+            item.num++;
+          }
+        })
+      }
+
+      // 减少 按钮
+      if(e.target.getAttribute('name') === 'lost'){
+        // 获取 goods_id 的属性
+        let goods_id = e.target.getAttribute('goods_id');
+        cateArr.forEach(function(item , key){
+          // 如果当前item的goods_id 与 标签中存储的goods_id相同
+          if(item.goods_id === goods_id){
+            // 购买数量--
+            item.num--;
+          }
+        })
+      }
+
+      // 不管上面那个一个事件触发了,总会改变数组中的数据
+
+      // 将新的数组,写入到页面中
+      setPage(cateArr);
+      // 把新数组的数据,写入到 localStorage 中
+      localStorage.setItem('cart' , JSON.stringify(cateArr) );
+    })
+
+    
+
+
+
+
+
+        </script>
+</body>
+</html>
